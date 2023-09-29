@@ -6,7 +6,9 @@
 
     position: absolute;
     top: 150px;
-    left: 850px;
+    left: 950px;
+
+    overflow: scroll;
 }
 
 #box2{
@@ -18,12 +20,30 @@
     position: absolute;
     top: 100px;
     left: 450px;
+
+    overflow: auto;
+}
+
+#form1{
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+
+input[type=text]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+label{
+    font-size: 20px;
 }
 
 #box3{
     border: 1px solid;
-    height: 900px;
-    width: 1400px;
+    height: 800px;
+    width: 1480px;
 
     position: absolute;
     top: 10px;
