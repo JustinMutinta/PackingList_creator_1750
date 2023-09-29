@@ -40,6 +40,13 @@ label{
     font-size: 20px;
 }
 
+#GenerateButton{
+    position: absolute;
+    bottom: 10px;
+    left: 740px;
+    font-size: 30px;
+}
+
 #box3{
     border: 1px solid;
     height: 800px;
