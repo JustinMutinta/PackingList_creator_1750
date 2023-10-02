@@ -1,3 +1,13 @@
+#paragraphs{
+    position: absolute;
+    top: 240px;
+    left: 10px;
+
+    height: 200px;
+    width: 440px;
+}
+
+
 /* Test box one. Will be on far right of screen for final list*/
 #box1{
     /* The next 4 fields change basic layout of box1*/
@@ -43,6 +53,11 @@
 
 #box4{
     border: 1px solid;
+
+    position: absolute;
+    top: 80px;
+
+    width: 1480px;
 }
 
 #box4 li{
