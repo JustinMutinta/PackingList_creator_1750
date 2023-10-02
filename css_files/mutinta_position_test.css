@@ -25,6 +25,7 @@
     overflow: scroll;
 }
 
+/* This lets me only make changes to the paragraph in box1 instead of ALL paragraphs in the html document */
 #box1 p{
     text-align: center;
     border: 1px dotted;
@@ -60,6 +61,7 @@
     width: 1480px;
 }
 
+/* The below code turns the list horizontal */
 #box4 li{
     display: inline;
     padding: 20px;
