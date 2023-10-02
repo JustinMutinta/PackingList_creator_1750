@@ -8,7 +8,7 @@
 
     /* The next 3 determine how box one is position in relation to the first higher container*/
     position: absolute;
-    top: 150px;
+    top: 100px;
     left: 950px;
 
     /* This allows text within the box to not spill over but to scroll. Remember to switch this value to auto*/
@@ -19,12 +19,12 @@
 #box2{
     border: 1px solid;
     height: 400px;
-    width: 300px;
-    background-color: tomato;
+    width: 400px;
+    background-color: PowderBlue;
 
     position: absolute;
     top: 100px;
-    left: 450px;
+    left: 500px;
 
     overflow: auto;
 }
