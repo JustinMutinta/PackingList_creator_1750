@@ -8,25 +8,46 @@
 
     /* The next 3 determine how box one is position in relation to the first higher container*/
     position: absolute;
-    top: 100px;
+    top: 140px;
     left: 950px;
 
     /* This allows text within the box to not spill over but to scroll. Remember to switch this value to auto*/
     overflow: scroll;
 }
 
+#box1 p{
+    text-align: center;
+    border: 1px dotted;
+}
+
+
 /* Text box 2. Will be data pulled from database.*/
 #box2{
     border: 1px solid;
     height: 400px;
     width: 400px;
-    background-color: PowderBlue;
+    background-color: LightBlue;
 
     position: absolute;
-    top: 100px;
+    top: 140px;
     left: 500px;
 
     overflow: auto;
+}
+
+
+#box2 p{
+    text-align: center;
+    border: 1px dotted;
+}
+
+#box4{
+    border: 1px solid;
+}
+
+#box4 li{
+    display: inline;
+    padding: 20px;
 }
 
 /* Created object for form to make it easier to position everything in one location*/
@@ -58,10 +79,16 @@ label{
 
 /* Made this one so that everything could be placed inside it. That way positioning of all objects would be better manageed*/
 #box3{
-    border: 1px solid;
+    border: 3px solid;
     height: 800px;
     width: 1480px;
 
+    background-color: AliceBlue;
+
     position: absolute;
     top: 10px;
+}
+
+h1{
+    text-align: center;
 }
