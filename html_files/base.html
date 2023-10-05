@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+    <link rel="stylesheet" href="..\css_files\master.css">
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+
+</head>
+
+<body>
+    <div id="mainBody">
+        <h1>Python Inventory Creator</h1>
+        <div id="navigationBar">
+            <ul>
+                <li>Home</li>
+                <li>Generate 1750</li>
+                <li>Other things...</li>
+            </ul>
+        </div>
+
+        {% block navigationBar %}
+
+        {% endblock navigationBar %}
+    </div>
+</body>
+</html>

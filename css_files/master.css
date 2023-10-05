@@ -1,65 +1,29 @@
 h1{
-    color:blue;
-}
-
-li{
-    color: rgb(30,200,0);
-}
-
-body{
-    background: gray;
-}
-
-.olone{
-    background: white;
-
-    /* Where this will align in relation to the immediate bigger picture */
-    float: right;
-
-    /* How wide this block of instuction will be on the web page */
-    width: 400px;
-
-    /* border of the item in question */
-    border-style: solid;
-
-    /* Space after the border to the next item*/
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 15px;
-    margin-left: 10px;
-
-    /* Space between the content and the border*/
-    padding-top: 50px;
-    padding-right: 10px;
-    padding-bottom: 50px;
-    padding-left: 60px;
-
-}
-
-.oltwo{
-    background: white;
-    float: right;
-    border-style: solid;
-    width: 400px;
-    margin: 10px 20px 75px 100px;
-    /* top right bottom left */
-    padding: 25px 50px 75px 100px;
-    /* top right bottom left*/
+    text-align: center;
 }
 
 
-ul{
-    background: white;
-    float: left;
-    width: 200px;
-    border-style: solid;
-    margin-right: 100px;
+#navigationBar{
+    border: 1px solid;
+
+    position: absolute;
+    top: 80px;
+
+    width: 1480px;
 }
 
+#navigationBar li{
+    display: inline;
+    padding: 20px;
+}
 
-form{
-    background: white;
-    border-style: solid;
-    width: 700px;
-    margin-top: 250px;
+#mainBody{
+    border: 3px solid;
+    height: 800px;
+    width: 1480px;
+
+    background-color: AliceBlue;
+
+    position: absolute;
+    top: 10px;
 }
