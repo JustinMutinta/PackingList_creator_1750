@@ -1,7 +1,12 @@
 import csv
+import random
 
 
 class csv_translator:
+
+    nsn = ""
+    nomenclature = ""
+    unit_of_issue = ""
 
 
     def return_20_records(self):
@@ -13,3 +18,21 @@ class csv_translator:
                 record_return.append(add_record)
 
         return record_return
+
+    def return_rand_record(self):
+        with open('nsn-extract.csv', 'r') as csv_file:
+            csv_reader = csv.reader(csv_file)
+            num = random.randint(1, 10365)
+            rows = list(csv_reader)
+            return rows[num][0], rows[num][2], rows[num][5]
+
+
+    def set_object_details(self):
+        with open('nsn-extract.csv', 'r') as csv_file:
+            csv_reader = csv.reader(csv_file)
+            num = random.randint(1, 10365)
+            rows = list(csv_reader)
+
+            self.nsn = rows[num][0]
+            self.nomenclature = rows[num][2]
+            self.unit_of_issue  =  rows[num][5]

@@ -25,6 +25,9 @@ cursor = conn.execute("select * from product")
 print(cursor.fetchall())
 
 db_object = csv_translator()
-print(db_object.return_20_records())
+print(db_object.return_rand_record())
+
+db_object.set_object_details()
+print(db_object.nsn, db_object.nomenclature, db_object.unit_of_issue)
 
 conn.close()
