@@ -14,9 +14,13 @@ print("Created Database successfully")
 #
 # print("Table created successfully")
 
-conn.execute("insert into product (item_id, nsn, nomenclature, unit_of_issue) values (1, '6625-01-234-5678', 'Box', 'EA')")
+# conn.execute("insert into product (item_id, nsn, nomenclature, unit_of_issue) values (1, '6625-01-234-5678', 'Box', 'EA')")
+#
+# conn.commit()
+# print("Records created successfully")
 
-conn.commit()
-print("Records created successfully")
+
+cursor = conn.execute("select * from product")
+print(cursor.fetchall())
 
 conn.close()
