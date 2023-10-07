@@ -1,4 +1,5 @@
 import sqlite3
+from csvtranslator import csv_translator
 
 conn = sqlite3.connect('PackingListCreator.db')
 
@@ -22,5 +23,8 @@ print("Created Database successfully")
 
 cursor = conn.execute("select * from product")
 print(cursor.fetchall())
+
+db_object = csv_translator()
+print(db_object.return_20_records())
 
 conn.close()
