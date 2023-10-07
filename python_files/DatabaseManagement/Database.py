@@ -24,8 +24,9 @@ print("Created Database successfully")
 cursor = conn.execute("select * from product")
 print(cursor.fetchall())
 
-db_object = csv_translator()
-print(db_object.return_rand_record())
+
+# db_object = csv_translator()
+# print(db_object.return_rand_record())
 
 # db_object.set_object_details()
 # print(db_object.nsn, db_object.nomenclature, db_object.unit_of_issue)
@@ -37,7 +38,11 @@ print(db_object.return_rand_record())
 #     conn.commit()
 #     print(f"{db_object.nomenclature} was entered")
 
-conn.close()
 
-for num in range(3, 30):
-    print(db_object.return_sql_string_for_table_entry(num))
+# for num in range(10, 30):
+#     conn.execute(db_object.return_sql_string_for_table_entry(num))
+#     conn.commit()
+
+
+
+conn.close()
