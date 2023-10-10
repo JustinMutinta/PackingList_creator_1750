@@ -5,13 +5,8 @@
   {{ super() }}
   <style type="text/css">
     .important { color: #336699; border: 1px solid;}
-    .db_output {
-      border: 1px solid;
-      position: absolute;
-      top: 140px; left: 500px;
-      height: 400px; width: 400px;
-      overflow: scroll;
-    }
+    .db_output {border: 1px solid; position: absolute; top: 140px; left: 500px; height: 400px; width: 400px; overflow: scroll;}
+    .input_for_1750 { border: 1px solid; height: 600px; width: 500px; position: absolute; top: 140px; left: 950px; overflow: scroll}
 
   </style>
 {% endblock %}
@@ -20,9 +15,8 @@
 {% block content %}
   {{ super() }}
   <div class="db_output">
-    <p>Test 1 2 3</p>
     <p class="important">
-      Welcome to the fun fair
+      Select items from here
     </p>
 
     <ul>
@@ -34,7 +28,9 @@
         </li>
       {% endfor %}
     </ul>
+  </div>
 
+  <div class="input_for_1750">
 
   </div>
 {% endblock %}
