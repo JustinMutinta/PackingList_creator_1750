@@ -8,8 +8,9 @@
     .db_output {
       border: 1px solid;
       position: absolute;
-      top: 330px;
-      left: 330px;
+      top: 140px; left: 500px;
+      height: 400px; width: 400px;
+      overflow: scroll;
     }
 
   </style>
@@ -25,15 +26,15 @@
     </p>
 
     <ul>
-      {% for item in product %}
-        <li>{{ item.nsn }}</li>
+      {% for item in data %}
+        <li> Item number: {{ item[0] }} <br>
+          Nsn: {{ item[1] }} <br>
+          Nomenclature: {{ item[2] }} <br>
+          Unit of issue: {{ item[3] }}
+        </li>
       {% endfor %}
     </ul>
 
-    {% for item in data %}
-      <tr>
-        <td> {{ item.nsn }}</td>
-      </tr>
-    {% endfor %}
+
   </div>
 {% endblock %}
