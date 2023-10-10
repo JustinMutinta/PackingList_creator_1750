@@ -4,14 +4,24 @@
 {% block head %}
   {{ super() }}
   <style type="text/css">
-    .important { color: #336699; }
+    .important { color: #336699; border: 1px solid;}
+    .db_output {
+      border: 1px solid;
+      position: absolute;
+      top: 330px;
+      left: 330px;
+    }
+
   </style>
 {% endblock %}
 
 
 {% block content %}
   {{ super() }}
-  <div id="db_output">
+  <div class="db_output">
     <p>Test 1 2 3</p>
+    <p class="important">
+      Welcome to the fun fair
+    </p>
   </div>
 {% endblock %}
