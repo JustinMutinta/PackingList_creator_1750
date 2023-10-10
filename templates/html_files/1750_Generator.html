@@ -23,5 +23,17 @@
     <p class="important">
       Welcome to the fun fair
     </p>
+
+    <ul>
+      {% for item in product %}
+        <li>{{ item.nsn }}</li>
+      {% endfor %}
+    </ul>
+
+    {% for item in data %}
+      <tr>
+        <td> {{ item.nsn }}</td>
+      </tr>
+    {% endfor %}
   </div>
 {% endblock %}
