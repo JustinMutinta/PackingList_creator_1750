@@ -1,0 +1,57 @@
+{% extends "html_files/base.html" %}
+{% block title %}1750 Generator{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; border: 1px solid;}
+    .db_output {border: 1px solid; position: absolute; top: 140px; left: 500px; height: 400px; width: 400px; overflow: scroll;}
+    .input_for_1750 { border: 1px solid; height: 600px; width: 500px; position: absolute; top: 140px; left: 950px; overflow: scroll}
+    .form1 { position: absolute; bottom: 50px; left: 50px;}
+    input[type=text] { width: 50%; padding: 12px 20px; margin: 8px 0;}
+    label { font-size: 20px;}
+    #GenerateButton { position: absolute; bottom: 10px; left: 740px; font-size: 30px;}
+    #paragraphs { position: absolute; top: 240px; left: 10px; height: 200px; width: 440px;}
+  </style>
+{% endblock %}
+
+
+{% block content %}
+  {{ super() }}
+  <div class="db_output">
+    <p class="important">
+      Select items from here
+    </p>
+
+    <ul>
+      {% for item in data %}
+        <li>
+          Item number:    {{ item[0] }} <br>
+          Nsn:            {{ item[1] }} <br>
+          Nomenclature:   {{ item[2] }} <br>
+          Unit of issue:  {{ item[3] }}
+        </li>
+      <br>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="input_for_1750">
+      <p>This is where the 1750 inputs will go</p>
+  </div>
+
+  <div id="paragraphs">
+            <p>This is going to be instruction on how to fill out the form.</p>
+            <br> <br> <br>
+            <p>This is going to be some kind of warning about what not to do</p>
+  </div>
+
+  <form class="form1">
+            <h2>Please input your container name and person packing it</h2>
+            <label for="ContainerName">Container name: </label>
+            <input type="text" id="ContainerName" value="Container name"><br>
+            <label for="PersonPacking">Person Packing: </label>
+            <input type="text" id="PersonPacking" value="Person packing"><br>
+  </form>
+  <input type="submit" id="GenerateButton" value="Generate">
+{% endblock %}

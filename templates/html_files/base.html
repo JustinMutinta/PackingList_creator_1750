@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     {% block head %}
-    <link rel="stylesheet" href="..\css_files\master.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/master.css') }}">
     <title>{% block title %}{% endblock %}</title>
     {% endblock %}
 
@@ -20,9 +20,9 @@
             </ul>
         </div>
 
-        {% block navigationBar %}
+        {% block content %}
 
-        {% endblock navigationBar %}
+        {% endblock %}
     </div>
 </body>
 </html>
