@@ -12,6 +12,7 @@
     label { font-size: 20px;}
     #GenerateButton { position: absolute; bottom: 10px; left: 740px; font-size: 30px;}
     #paragraphs { position: absolute; top: 240px; left: 10px; height: 200px; width: 440px;}
+      #AddButton {text-align: left; border-radius: 8px; width: 350px}
   </style>
 {% endblock %}
 
@@ -26,10 +27,11 @@
     <ul>
       {% for item in data %}
         <li>
-          Item number:    {{ item[0] }} <br>
-          Nsn:            {{ item[1] }} <br>
-          Nomenclature:   {{ item[2] }} <br>
-          Unit of issue:  {{ item[3] }}
+            <input type="submit" id="AddButton" value="
+            Item number:    {{ item[0] }}
+            Nsn:            {{ item[1] }}
+            Nomenclature:   {{ item[2] }}
+            Unit of issue:  {{ item[3] }} ">
         </li>
       <br>
       {% endfor %}
