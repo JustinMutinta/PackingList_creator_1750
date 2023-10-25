@@ -2,6 +2,8 @@ from flask import Flask, render_template
 import sqlite3
 app = Flask(__name__)
 
+test = "Something to add"
+
 @app.route("/")
 def hello():
     return "Hello World!"
@@ -13,7 +15,7 @@ def create_1750():
     cur.execute("SELECT * FROM product")
     data = cur.fetchall()
     cur.close()
-    return render_template('html_files/1750_Generator.html', data = data)
+    return render_template('html_files/1750_Generator.html', data = data, test = test)
 
 
 @app.route("/17501")
