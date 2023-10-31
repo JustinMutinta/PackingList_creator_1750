@@ -27,11 +27,16 @@
     <ul>
       {% for item in data %}
         <li>
-            <input type="submit" id="AddButton" value="
-            Item number:      {{ item[0] }}
-            Nsn:                    {{ item[1] }}
-            Nomenclature:   {{ item[2] }}
-            Unit of issue:      {{ item[3] }} ">
+            <form method="POST">
+                <label>
+                    Item number:      {{ item[0] }}
+                Nsn:                    {{ item[1] }}
+                Nomenclature:   {{ item[2] }}
+                Unit of issue:      {{ item[3] }}
+                </label>
+                <input name="label1" type="text" value="{{ item[2] }}">
+                <button>Add</button>
+            </form>
         </li>
       <br>
       {% endfor %}
@@ -40,7 +45,9 @@
 
   <div class="input_for_1750">
       <p>This is where the 1750 inputs will go</p>
-      {{ test }}
+      {% for item in test %}
+      {{ item }} <br>
+      {% endfor %}
   </div>
 
   <div id="paragraphs">
