@@ -21,26 +21,27 @@
   {{ super() }}
   <div class="db_output">
     <p class="important">
-      Select items from here
+      Select items from here and click the submit button when done
     </p>
 
-    <ul>
-      {% for item in data %}
-        <li>
-            <form method="POST">
-                <label>
-                    Item number:      {{ item[0] }}
-                Nsn:                    {{ item[1] }}
-                Nomenclature:   {{ item[2] }}
-                Unit of issue:      {{ item[3] }}
-                </label>
-                <input name="label1" type="text" value="{{ item[2] }}">
-                <button>Add</button>
-            </form>
-        </li>
+      <form method="POST" action="/1750">
+
+          {% for item in data %}
+          <input name="label1" type="checkbox" value="{{ item[2] + ' ' + item[1] }}">
+          <label>
+              Item number:      {{ item[0] }} <br>
+              NSN:                    {{ item[1] }} <br>
+              Nomenclature:   {{ item[2] }} <br>
+              Unit of issue:      {{ item[3] }} <br> <br>
+          </label>
+          {% endfor %}
+          <input type="Submit">
+      </form>
+
       <br>
-      {% endfor %}
-    </ul>
+
+
+
   </div>
 
   <div class="input_for_1750">

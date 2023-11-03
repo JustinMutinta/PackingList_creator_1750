@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 app = Flask(__name__)
 
-test = ["Something to add", "Something else to add", "Third thing worth add"]
+test = []
 
 
 @app.route("/")
@@ -18,8 +18,9 @@ def create_1750():
     data = cur.fetchall()
     cur.close()
     if request.method == "POST":
-        to_add = request.form["label1"]
-        test.append(to_add)
+        to_add = request.form.getlist('label1')
+        for item in to_add:
+            test.append(item)
     return render_template('html_files/1750_Generator.html', data = data, test = test)
 
 
