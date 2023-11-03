@@ -25,10 +25,13 @@ def create_1750():
     return render_template('html_files/1750_Generator.html', data = data, test = test)
 
 
+@app.route("/results")
+def show_results():
+    return render_template('html_files/results.html', test = test)
 
-@app.route("/17501")
-def create_17501():
-    return render_template('html_files/mutinta_position_test.html')
+@app.route("/home")
+def home():
+    return render_template('html_files/home.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

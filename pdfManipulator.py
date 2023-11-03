@@ -52,7 +52,6 @@ class pdfManipulator:
         "box_18" : "", "contents_18" : "", "unit_18" : "", "init_18" : "", "total_18" : "",
     }
 
-
     def pdf_creator(self, username, container):
         global dateTime_string
 
@@ -77,7 +76,6 @@ class pdfManipulator:
                 writer.write(output_stream)
         except Exception as e:
             print(e)
-
 
     def fill_in_pdf(self, username, container, test_data):
         global fields_be_added_top

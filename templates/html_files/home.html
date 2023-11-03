@@ -1,0 +1,30 @@
+{% extends "html_files/base.html" %}
+{% block title %}1750 Generator{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; border: 1px solid;}
+    .db_output {border: 1px solid; position: absolute; top: 140px; left: 500px; height: 600px; width: 850px; overflow: scroll;}
+    .input_for_1750 { border: 1px solid; height: 600px; width: 850px; position: absolute; top: 140px; left: 500px; overflow: scroll}
+    .form1 { position: absolute; bottom: 50px; left: 50px;}
+    input[type=text] { width: 50%; padding: 12px 20px; margin: 8px 0;}
+    label { font-size: 20px;}
+    #GenerateButton { position: absolute; font-size: 30px;}
+    #paragraphs { position: absolute; top: 240px; left: 10px; height: 200px; width: 440px;}
+      #AddButton {text-align: left; border-radius: 8px; width: 340px}
+  </style>
+{% endblock %}
+
+
+{% block content %}
+  {{ super() }}
+
+
+  <p>THIS IS THE HOME PAGE</p>
+
+
+
+
+
+{% endblock %}
