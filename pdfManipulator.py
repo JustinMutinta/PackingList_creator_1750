@@ -1,4 +1,12 @@
 from pypdf import PdfReader, PdfWriter
+from datetime import datetime
+
+
+now = datetime.now()
+
+# print(now)
+dt_string = now.strftime("%m-%d-%Y_%H:%M:%S")
+# print(dt_string)
 
 reader = PdfReader("1750/Template/DD-FORM-1750.pdf")
 writer = PdfWriter()
@@ -42,5 +50,12 @@ writer.update_page_form_field_values(
                       }
 )
 
-with open("1750/Output/Test12.pdf", "wb") as output_stream:
-    writer.write(output_stream)
+username = "Username"
+container = "Container"
+
+def print_1750(username, container):
+    with open(f"1750/Output/{dt_string}_{container}_{username}_1750.pdf", "wb") as output_stream:
+        writer.write(output_stream)
+
+
+print_1750(username, container)
