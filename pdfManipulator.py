@@ -76,6 +76,25 @@ def pdf_creator(username, container):
         print(e)
 
 
+def fill_in_pdf(username, container):
+    global fields_be_added_top
+    global fields_be_added_bottom
+    global fields_be_added_main
+
+    fields_be_added_top.update({
+        f"3_END_ITEM": container,
+        f"PACKED_BY": username,
+        f"4_DATE": date_string,
+        "page": "1", "pages": "1",
+    })
+
+    fields_be_added_bottom.update({
+        "certname": username
+    })
+
+
+    pdf_creator(username, container)
+
 
 
 
@@ -131,4 +150,5 @@ def print_1750(username, container):
 
 
 # print_1750(username, container)
-pdf_creator(username, container)
+# pdf_creator(username, container)
+fill_in_pdf(username, container)
