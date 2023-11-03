@@ -12,6 +12,7 @@ def hello():
 
 @app.route("/1750", methods=["GET", "POST"])
 def create_1750():
+    test.clear()
     conn = sqlite3.connect('/Users/justinmutinta/Documents/Python/PackingList_creator_1750_from_BidDawg/python_files/DatabaseManagement/PackingListCreator.db')
     cur = conn.cursor()
     cur.execute("SELECT * FROM product")
