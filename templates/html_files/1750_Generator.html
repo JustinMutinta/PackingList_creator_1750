@@ -25,16 +25,16 @@
       Select items from here then scroll down to the bottom and click on the "Generate" button.
     </p>
 
-      <form method="POST" action="/1750">
+      <form method="POST" action="{{ url_for('show_results')}}">
 
-            <label for="ContainerName">Container name: </label>
-            <input type="text" id="ContainerName" value="Container name"><br>
-            <label for="PersonPacking">Person Packing: </label>
-            <input type="text" id="PersonPacking" value="Person packing"><br> <br> <br>
+            <label>Container name: </label>
+            <input type="text" name="ContainerName" value="Container name"><br>
+            <label>Person Packing: </label>
+            <input type="text" name="PersonPacking" value="Person packing"><br> <br> <br>
 
 
           {% for item in data %}
-          <input name="label1" type="checkbox" value="{{ item[2] + ' ' + item[1] }}">
+          <input name="label1" type="checkbox" value="{{ item[2] }} {{ item[1] }}">
 
               <ll><label>
                     Nomenclature:   {{ item[2] }}<br>

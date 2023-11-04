@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
-import sqlite3
+import sqlite3, PdfManipulator
 app = Flask(__name__)
 
-test = []
+test = ["Test"]
 
 
 @app.route("/")
@@ -18,15 +18,21 @@ def create_1750():
     cur.execute("SELECT * FROM product")
     data = cur.fetchall()
     cur.close()
-    if request.method == "POST":
-        to_add = request.form.getlist('label1')
-        for item in to_add:
-            test.append(item)
     return render_template('html_files/1750_Generator.html', data = data, test = test)
 
 
+@app.route("/results", methods=["POST"])
 @app.route("/results")
 def show_results():
+    to_add = request.form.getlist('label1')
+    for item in to_add:
+        test.append(item)
+
+    username = request.form.get("PersonPacking")
+    container = request.form.get("ContainerName")
+
+    PdfManipulator.fill_in_pdf(username, container, test)
+
     return render_template('html_files/results.html', test = test)
 
 @app.route("/home")

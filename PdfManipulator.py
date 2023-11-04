@@ -1,11 +1,11 @@
 from pypdf import PdfReader, PdfWriter
 from datetime import datetime, date
 
-class pdfManipulator:
 
-    now = datetime.now()
-    dateTime_string = now.strftime("%m-%d-%Y_%H:%M:%S")
-    date_string = now.date()
+
+now = datetime.now()
+dateTime_string = now.strftime("%m-%d-%Y_%H:%M:%S")
+date_string = now.date()
 
     # test_data = [
     #     ["item Number 1", "1234-56-789-1234", "EA"],
@@ -20,18 +20,18 @@ class pdfManipulator:
     # username = "SPC JOE SNUFFY"
     # container = "TUFF BOX"
 
-    fields_be_added_top = {
+fields_be_added_top = {
         "3_END_ITEM": "",
         "PACKED_BY": "",
         "4_DATE": "",
         "page" : "1", "pages" : "1",
     }
 
-    fields_be_added_bottom = {
+fields_be_added_bottom = {
         "certname" : "Person that created this"
     }
 
-    fields_be_added_main = {
+fields_be_added_main = {
         "box_1" : "", "contents_1" : "", "unit_1" : "", "init_1" : "", "total_1" : "",
         "box_2" : "", "contents_2" : "", "unit_2" : "", "init_2" : "", "total_2" : "",
         "box_3" : "", "contents_3" : "", "unit_3" : "", "init_3" : "", "total_3" : "",
@@ -52,59 +52,59 @@ class pdfManipulator:
         "box_18" : "", "contents_18" : "", "unit_18" : "", "init_18" : "", "total_18" : "",
     }
 
-    def pdf_creator(self, username, container):
-        global dateTime_string
+def pdf_creator(username, container):
+    global dateTime_string
 
-        reader = PdfReader("1750/Template/DD-FORM-1750.pdf")
-        writer = PdfWriter()
+    reader = PdfReader("1750/Template/DD-FORM-1750.pdf")
+    writer = PdfWriter()
 
-        page = reader.pages[0]
+    page = reader.pages[0]
 
-        writer.add_page(page)
+    writer.add_page(page)
 
-        fields_to_be_added = {}
-        fields_to_be_added.update(fields_be_added_top)
-        fields_to_be_added.update(fields_be_added_main)
-        fields_to_be_added.update(fields_be_added_bottom)
+    fields_to_be_added = {}
+    fields_to_be_added.update(fields_be_added_top)
+    fields_to_be_added.update(fields_be_added_main)
+    fields_to_be_added.update(fields_be_added_bottom)
 
-        writer.update_page_form_field_values(
-            writer.pages[0], fields_to_be_added
-        )
+    writer.update_page_form_field_values(
+       writer.pages[0], fields_to_be_added
+    )
 
-        try:
-            with open(f"1750/Output/{dateTime_string}_{container}_{username}_1750.pdf", "wb") as output_stream:
-                writer.write(output_stream)
-        except Exception as e:
-            print(e)
+    try:
+        with open(f"1750/Output/{dateTime_string}_{container}_{username}_1750.pdf", "wb") as output_stream:
+            writer.write(output_stream)
+    except Exception as e:
+        print(e)
 
-    def fill_in_pdf(self, username, container, test_data):
-        global fields_be_added_top
-        global fields_be_added_bottom
-        global fields_be_added_main
-        global date_string
+def fill_in_pdf(username, container, test_data):
+    global fields_be_added_top
+    global fields_be_added_bottom
+    global fields_be_added_main
+    global date_string
 
-        fields_be_added_top.update({
-            f"3_END_ITEM": container,
-            f"PACKED_BY": username,
-            f"4_DATE": date_string,
-            "page": "1", "pages": "1",
-        })
+    fields_be_added_top.update({
+        f"3_END_ITEM": container,
+        f"PACKED_BY": username,
+        f"4_DATE": date_string,
+        "page": "1", "pages": "1",
+    })
 
-        fields_be_added_bottom.update({
-            "certname": username
-        })
+    fields_be_added_bottom.update({
+        "certname": username
+    })
 
-        for value in range(len(test_data) + 1):
-            if value == 0:
-                pass
-            else:
-                new_content = f"contents_{value}"
-                new_unit_of_issue = f"unit_{value}"
-                new_initial = f"init_{value}"
-                new_total = f"total_{value}"
-                fields_be_added_main[new_content] = f"{test_data[value -1][0]} \n{test_data[value -1][1]}"
-                fields_be_added_main[new_unit_of_issue] = f"{test_data[value -1][2]}"
-                fields_be_added_main[new_initial] = 1
-                fields_be_added_main[new_total] = 1
+    for value in range(len(test_data) + 1):
+        if value == 0:
+            pass
+        else:
+            new_content = f"contents_{value}"
+            new_unit_of_issue = f"unit_{value}"
+            new_initial = f"init_{value}"
+            new_total = f"total_{value}"
+            fields_be_added_main[new_content] = f"{test_data[value -1]}"
+            fields_be_added_main[new_unit_of_issue] = f"EA"
+            fields_be_added_main[new_initial] = 1
+            fields_be_added_main[new_total] = 1
 
-        self.pdf_creator(username, container)
+    pdf_creator(username, container)
