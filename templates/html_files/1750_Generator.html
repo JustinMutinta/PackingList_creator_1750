@@ -1,0 +1,49 @@
+{% extends "html_files/base.html" %}
+{% block title %}1750 Generator{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .db_output {border: 1px solid; position: absolute; top: 140px; left: 500px; height: 600px; width: 850px; overflow: scroll;}
+    .form1 { position: absolute; bottom: 50px; left: 50px;}
+    input[type=text] { width: 50%; padding: 12px 20px; margin: 8px 0;}
+    label { font-size: 20px;}
+    #GenerateButton { position: absolute; left: 250px; font-size: 50px;}
+    #paragraphs { position: absolute; top: 240px; left: 10px; height: 200px; width: 440px;}
+  </style>
+{% endblock %}
+
+
+{% block content %}
+  {{ super() }}
+  <div class="db_output">
+
+      <form method="POST" action="{{ url_for('show_results')}}">
+          <label>Container name: </label>
+          <input type="text" name="ContainerName" value="Container name"><br>
+          <label>Person Packing: </label>
+          <input type="text" name="PersonPacking" value="Person packing"><br> <br> <br>
+
+          {% for item in data %}
+            <input name="label1" type="checkbox" value="{{ item[2] }} {{ item[1] }}">
+              <ll><label>
+                  Nomenclature:   {{ item[2] }}<br>
+                  Item Number:      {{ item[0] }}
+                  NSN:                    {{ item[1] }}
+                  Unit of issue:      {{ item[3] }} <br> <br>
+              </label></ll>
+          {% endfor %}
+          <br>
+          <input type="Submit" id="GenerateButton" value="Generate">
+      </form>
+      <br>
+  </div>
+
+
+  <div id="paragraphs">
+            <p>Fill in the name of the Container and the Person packing it. Then select the items you want to print <br></p>
+            <br> <br> <br>
+            <p>Select items from here then scroll down to the bottom and click on the "Generate" button.</p>
+  </div>
+
+{% endblock %}

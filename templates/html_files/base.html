@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='master.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+
+</head>
+
+<body>
+    <div id="mainBody">
+        <h1>Python Inventory Creator</h1>
+        <div id="navigationBar">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('create_1750') }}">Generate 1750</a></li>
+                <li><a href="{{ url_for('show_results') }}">Results</a></li>
+            </ul>
+        </div>
+
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>

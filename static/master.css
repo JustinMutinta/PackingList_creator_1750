@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+}
+
+
+#navigationBar{
+    border: 1px solid;
+
+    position: absolute;
+    top: 80px;
+
+    width: 1480px;
+}
+
+#navigationBar li{
+    display: inline;
+    padding: 20px;
+}
+
+#mainBody{
+    border: 3px solid;
+    height: 800px;
+    width: 1480px;
+
+    background-color: AliceBlue;
+
+    position: absolute;
+    top: 10px;
+}

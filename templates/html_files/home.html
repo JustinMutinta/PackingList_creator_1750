@@ -1,0 +1,20 @@
+{% extends "html_files/base.html" %}
+{% block title %}1750 Generator{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .home { border: 1px solid; height: 600px; width: 850px; position: absolute; top: 140px; left: 500px; overflow: scroll}
+  </style>
+{% endblock %}
+
+
+{% block content %}
+  {{ super() }}
+
+  <div class="home">
+    <h1>THIS IS THE HOME PAGE</h1>
+    <p>Options are on the top left corner</p>
+  </div>
+
+{% endblock %}
