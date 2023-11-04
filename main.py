@@ -1,19 +1,19 @@
 from flask import Flask, render_template, request, redirect, url_for
-import sqlite3, PdfManipulator
+import sqlite3
+from PdfManipulator import PdfManipulator
 app = Flask(__name__)
 
-test = ["Test"]
-
+test = []
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return "REMEMBER TO ADD /1750 OR /HOME OR /RESULTS TO GET STARTED"
 
 
 @app.route("/1750", methods=["GET", "POST"])
 def create_1750():
     test.clear()
-    conn = sqlite3.connect('/Users/justinmutinta/Documents/Python/PackingList_creator_1750_from_BidDawg/python_files/DatabaseManagement/PackingListCreator.db')
+    conn = sqlite3.connect('PackingListCreator.db')
     cur = conn.cursor()
     cur.execute("SELECT * FROM product")
     data = cur.fetchall()
@@ -31,13 +31,18 @@ def show_results():
     username = request.form.get("PersonPacking")
     container = request.form.get("ContainerName")
 
-    PdfManipulator.fill_in_pdf(username, container, test)
+    new_object = PdfManipulator(username, container)
+    new_object.fill_in_pdf(test)
 
-    return render_template('html_files/results.html', test = test)
+    pdf_output = new_object.output_pdf_location()
+
+    return render_template('html_files/results.html', test = test, pdf_output = pdf_output)
+
 
 @app.route("/home")
 def home():
     return render_template('html_files/home.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
