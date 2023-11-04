@@ -2,7 +2,7 @@ import sqlite3
 from csvtranslator import csv_translator
 
 # creates database if its not available
-conn = sqlite3.connect('PackingListCreator.db')
+conn = sqlite3.connect('../../PackingListCreator.db')
 
 print("Created Database successfully")
 
